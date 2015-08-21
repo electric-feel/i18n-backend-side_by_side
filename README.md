@@ -1,6 +1,74 @@
 # i18n-backend-shiftpush
 
-Store translations for different locales side by side for each key
+**Tired of jumping between language files when translating keys? Stop jumping
+and have all the languages side by side.**
+
+This gem is a subclass of the default `I18n::Backend::Simple` backend. It
+changes the way translations get loaded from files in order to support
+specifying the language code anywhere along the key path as opposed to the root
+key. This allows for all languages being defined next to each other,
+making it easier to translate between them.
+
+## How It Works
+
+Let's assume your app supports English, Spanish, and German. You probably have
+one file per language:
+
+```
+locales/
+  view.en.yml
+  view.es.yml
+  view.de.yml
+```
+
+The files might look something like this (e.g. `locales/en.yml`):
+
+```yaml
+en:
+  view:
+    title: Welcome
+    inbox:
+      zero: You have no messages
+      one: You have one message
+      other: 'You have %{count} messages'
+```
+
+Whenever you have to add or modify a key, you have to edit all files. Also, you
+can't see all translations at once for a specific key. With this gem you can
+merge all the files and specify the translation for a key at that key:
+
+```yaml
+view:
+  title:
+    _en: Welcome
+    _es: Bienvenido
+    _de: Willkommen
+  inbox:
+    _en:
+      zero: You have no messages
+      one: You have one message
+      other: 'You have %{count} messages'
+    _es:
+      zero: No tiene mensajes
+      one: Tienes un mensaje
+      other: 'Tienes %{count} messajes'
+    _de:
+      zero: Du hast keine Nachrichten
+      one: Du hast eine Nachricht
+      other: 'Du hast %{count} Nachrichten'
+```
+
+Note that the underscore is necessary in order to distinguish a language key
+from a normal key. Thus, you should not prefix keys with an underscore, unless
+they denote a language.
+
+When the files get loaded, they're transformed on the fly to the original format
+by moving the language code to the beginning of the key path:
+
+```
+foo.bar._en            => en.foo.bar
+foo.bar._en-UK.abc.xyz => en-UK.foo.bar.abc.xyz
+```
 
 ## Installation
 
@@ -10,18 +78,15 @@ Add this line to your application's Gemfile:
 gem 'i18n-backend-shiftpush'
 ```
 
-And then execute:
+Set up `I18n` to use an instance of this backend:
 
-    $ bundle
+```ruby
+I18n.backend = I18n::Backend::Shiftpush.new
+```
 
-Or install it yourself as:
+That's it. Continue using `I18n` as you're used to. Happy translating!
 
-    $ gem install i18n-backend-shiftpush
+## Authors
 
-## Contributing
-
-1. Fork it ( https://github.com/[my-github-username]/i18n-backend-shiftpush/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+- Pratik Mukerji ([pmukerji](https://github.com/pmukerji))
+- Philipe Fatio ([fphilipe](https://github.com/fphilipe))
