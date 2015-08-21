@@ -7,17 +7,17 @@ I18n.backend = I18n::Backend::Shiftpush.new
 
 class Test < Minitest::Test
   def test_simple
-    assert_equal(I18n.t('foo.bar', locale: :en), 'Hi')
-    assert_equal(I18n.t('foo.bar', locale: :de), 'Hallo')
+    assert_equal('Hi',    I18n.t('foo.bar', locale: :en))
+    assert_equal('Hallo', I18n.t('foo.bar', locale: :de))
   end
 
   def test_hash
-    assert_equal(I18n.t('foo.hash', locale: :en), key: 'value')
-    assert_equal(I18n.t('foo.hash', locale: :de), key: 'Wert')
+    assert_equal({ key: 'value' }, I18n.t('foo.hash', locale: :en))
+    assert_equal({ key: 'Wert' },  I18n.t('foo.hash', locale: :de))
   end
 
   def test_count
-    assert_equal(I18n.t('foo.count', locale: :en, count: 0), 'none')
-    assert_equal(I18n.t('foo.count', locale: :de, count: 0), 'keine')
+    assert_equal('none',  I18n.t('foo.count', count: 0, locale: :en))
+    assert_equal('keine', I18n.t('foo.count', count: 0, locale: :de))
   end
 end
