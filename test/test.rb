@@ -3,8 +3,7 @@ require 'i18n/backend/shiftpush'
 require 'minitest/autorun'
 
 I18n.load_path = Dir['test/locales/*.yml']
-I18n.config.backend = I18n::Backend::Shiftpush.new
-I18n.enforce_available_locales = false
+I18n.backend = I18n::Backend::Shiftpush.new
 
 class Test < Minitest::Test
   def test_simple
