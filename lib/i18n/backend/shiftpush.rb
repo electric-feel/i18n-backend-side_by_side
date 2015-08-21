@@ -16,7 +16,11 @@ module I18n
           raise InvalidLocaleData.new(filename, 'expects it to return a hash, but does not')
         end
 
-        _process([], data.deep_symbolize_keys)
+        if data.first.first == LOCALE_PREFIX
+          _process([], data[LOCALE_PREFIX].deep_symbolize_keys)
+        else
+          data.each { |locale, d| store_translations(locale, d || {}) }
+        end
       end
 
       private

@@ -6,6 +6,11 @@ I18n.load_path = Dir['test/locales/*.yml']
 I18n.backend = I18n::Backend::Shiftpush.new
 
 class Test < Minitest::Test
+  def test_oldschool
+    assert_equal('Still here',      I18n.t('oldschool', locale: :en))
+    assert_equal('Immer noch hier', I18n.t('oldschool', locale: :de))
+  end
+
   def test_simple
     assert_equal('Hi',    I18n.t('foo.bar', locale: :en))
     assert_equal('Hallo', I18n.t('foo.bar', locale: :de))
