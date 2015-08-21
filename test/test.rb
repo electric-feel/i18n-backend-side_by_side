@@ -2,7 +2,6 @@ $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'i18n/backend/shiftpush'
 require 'minitest/autorun'
 
-require 'byebug'
 I18n.load_path = Dir['test/locales/*.yml']
 I18n.config.backend = I18n::Backend::Shiftpush.new
 I18n.enforce_available_locales = false
