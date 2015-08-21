@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.name          = 'i18n-backend-side_by_side'
   spec.version       = File.read('VERSION').strip
   spec.authors       = ['Philipe Fatio', 'Pratik Mukerji']
-  spec.email         = ["me@phili.pe", 'pratik@electricfeel.com']
+  spec.email         = ['me@phili.pe', 'pratik@electricfeel.com']
   spec.summary       = %q{Tired of jumping between language files when translating keys? Stop jumping and have all the languages side by side.}
   spec.description   = spec.summary
   spec.homepage      = 'https://github.com/electric-feel/i18n-backend-side_by_side'
