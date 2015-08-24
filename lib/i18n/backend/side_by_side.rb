@@ -2,7 +2,7 @@ require 'i18n'
 
 module I18n
   module Backend
-    class Shiftpush < Simple
+    class SideBySide < Simple
       VERSION = File.read(File.expand_path('../../../../VERSION', __FILE__))
       LOCALE_PREFIX = '_'
 

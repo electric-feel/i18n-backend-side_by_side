@@ -1,9 +1,9 @@
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
-require 'i18n/backend/shiftpush'
+require 'i18n/backend/side_by_side'
 require 'minitest/autorun'
 
 I18n.load_path = Dir['test/locales/*.yml']
-I18n.backend = I18n::Backend::Shiftpush.new
+I18n.backend = I18n::Backend::SideBySide.new
 
 class Test < Minitest::Test
   def test_oldschool
