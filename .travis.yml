@@ -1,0 +1,15 @@
+sudo: false
+language: ruby
+cache: bundler
+script: bundle exec rake test
+rvm:
+  - 1.9.3
+  - 2.2.3
+  - jruby-19mode
+  - rbx-2
+env:
+  - I18N_HEAD=0
+  - I18N_HEAD=1
+matrix:
+  allow_failures:
+    - env: I18N_HEAD=1

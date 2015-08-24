@@ -1,5 +1,7 @@
 # i18n-backend-side\_by\_side
 
+[![Build Status](https://travis-ci.org/electric-feel/i18n-backend-side_by_side.svg)](https://travis-ci.org/electric-feel/i18n-backend-side_by_side)
+
 **Tired of jumping between language files when translating keys? Stop jumping
 and have all the languages side by side.**
 
