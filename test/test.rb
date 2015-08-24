@@ -25,4 +25,11 @@ class Test < Minitest::Test
     assert_equal('none',  I18n.t('foo.count', count: 0, locale: :en))
     assert_equal('keine', I18n.t('foo.count', count: 0, locale: :de))
   end
+
+  def test_partially_missing
+    assert_equal('some value', I18n.t('foo.only_en.some_key', locale: :en))
+    assert_equal({ some_key: 'some value' }, I18n.t('foo.only_en', locale: :en))
+    assert_raises { I18n.t('foo.only_en.some_key', locale: :de, raise: true) }
+    assert_raises { I18n.t('foo.only_en', locale: :de, raise: true) }
+  end
 end

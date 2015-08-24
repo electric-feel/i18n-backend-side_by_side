@@ -16,3 +16,6 @@ _:
         one: ein
         zero: keine
         other: mehrere
+    only_en:
+      some_key:
+        _en: 'some value'
