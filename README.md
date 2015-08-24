@@ -1,4 +1,4 @@
-# i18n-backend-shiftpush
+# i18n-backend-side\_by\_side
 
 **Tired of jumping between language files when translating keys? Stop jumping
 and have all the languages side by side.**
@@ -82,13 +82,13 @@ _.foo.bar._en-UK.abc.xyz => en-UK.foo.bar.abc.xyz
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'i18n-backend-shiftpush'
+gem 'i18n-backend-side_by_side'
 ```
 
 Set up `I18n` to use an instance of this backend:
 
 ```ruby
-I18n.backend = I18n::Backend::Shiftpush.new
+I18n.backend = I18n::Backend::SideBySide.new
 ```
 
 That's it. Continue using `I18n` as you're used to. Happy translating!
