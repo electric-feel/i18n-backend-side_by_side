@@ -1,0 +1,18 @@
+_:
+  foo:
+    bar:
+      _en: Hi
+      _de: Hallo
+    hash:
+      key:
+        _en: value
+        _de: Wert
+    count:
+      _en:
+        one: one
+        zero: none
+        other: many
+      _de:
+        one: ein
+        zero: keine
+        other: mehrere

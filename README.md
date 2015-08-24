@@ -38,36 +38,43 @@ can't see all translations at once for a specific key. With this gem you can
 merge all the files and specify the translation for a key at that key:
 
 ```yaml
-view:
-  title:
-    _en: Welcome
-    _es: Bienvenido
-    _de: Willkommen
-  inbox:
-    _en:
-      zero: You have no messages
-      one: You have one message
-      other: 'You have %{count} messages'
-    _es:
-      zero: No tiene mensajes
-      one: Tienes un mensaje
-      other: 'Tienes %{count} messajes'
-    _de:
-      zero: Du hast keine Nachrichten
-      one: Du hast eine Nachricht
-      other: 'Du hast %{count} Nachrichten'
+_:
+  view:
+    title:
+      _en: Welcome
+      _es: Bienvenido
+      _de: Willkommen
+    inbox:
+      _en:
+        zero: You have no messages
+        one: You have one message
+        other: 'You have %{count} messages'
+      _es:
+        zero: No tiene mensajes
+        one: Tienes un mensaje
+        other: 'Tienes %{count} messajes'
+      _de:
+        zero: Du hast keine Nachrichten
+        one: Du hast eine Nachricht
+        other: 'Du hast %{count} Nachrichten'
 ```
 
-Note that the underscore is necessary in order to distinguish a language key
-from a normal key. Thus, you should not prefix keys with an underscore, unless
-they denote a language.
+Two things to note here:
+
+1. The root key is an underscore. Omitting it results in the file being
+   processed as a regular translation file, without support for side-by-side
+   translations.
+
+2. The language codes are prefixed with an underscore. This is needed in order
+   to distinguish a language code key from a normal key. This also means that
+   regular keys can't start with an underscore.
 
 When the files get loaded, they're transformed on the fly to the original format
 by moving the language code to the beginning of the key path:
 
 ```
-foo.bar._en            => en.foo.bar
-foo.bar._en-UK.abc.xyz => en-UK.foo.bar.abc.xyz
+_.foo.bar._en            => en.foo.bar
+_.foo.bar._en-UK.abc.xyz => en-UK.foo.bar.abc.xyz
 ```
 
 ## Installation
