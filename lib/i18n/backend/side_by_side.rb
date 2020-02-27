@@ -1,7 +1,10 @@
 require 'i18n'
+require 'i18n/core_ext/hash'
 
 module I18n
   module Backend
+    using HashRefinements
+
     class SideBySide < Simple
       VERSION = File.read(File.expand_path('../../../../VERSION', __FILE__))
       LOCALE_PREFIX = '_'
