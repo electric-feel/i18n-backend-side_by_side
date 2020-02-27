@@ -20,5 +20,5 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'minitest'
-  spec.add_dependency 'i18n'
+  spec.add_dependency 'i18n', '>= 1.3.0'
 end
