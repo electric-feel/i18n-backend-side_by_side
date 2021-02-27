@@ -19,3 +19,4 @@ _:
     only_en:
       some_key:
         _en: 'some value'
+    without_language: "Without Language"

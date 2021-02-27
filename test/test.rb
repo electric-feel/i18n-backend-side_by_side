@@ -32,4 +32,9 @@ class Test < Minitest::Test
     assert_raises { I18n.t('foo.only_en.some_key', locale: :de, raise: true) }
     assert_raises { I18n.t('foo.only_en', locale: :de, raise: true) }
   end
+
+  def test_without_language
+    assert_equal('Without Language', I18n.t('foo.without_language', language: :en))
+    assert_equal('Without Language', I18n.t('foo.without_language', language: :de))
+  end
 end

@@ -29,7 +29,13 @@ module I18n
       private
 
       def _process(path, hash)
-        if _contains_locales?(hash)
+        if !hash.is_a?(Hash)
+          ### TRANSLATION KEY WITHOUT SPECIFIED LANGUAGE - WILL BE APPLIED TO ALL LANGUAGES
+          value = hash
+          translations.keys.each do |locale|
+            _store([locale] + path, value)
+          end
+        elsif _contains_locales?(hash)
           hash.each do |locale, value|
             _store([_strip_locale_prefix(locale)] + path, value)
           end
