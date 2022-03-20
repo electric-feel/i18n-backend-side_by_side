@@ -1,6 +1,6 @@
 # i18n-backend-side\_by\_side
 
-[![Build Status](https://travis-ci.org/electric-feel/i18n-backend-side_by_side.svg)](https://travis-ci.org/electric-feel/i18n-backend-side_by_side)
+[![Tests Status](https://github.com/electric-feel/i18n-backend-side_by_side/workflows/Ruby/badge.svg)](https://github.com/electric-feel/i18n-backend-side_by_side/actions?query=workflow%3ARuby)
 [![Gem Version](https://badge.fury.io/rb/i18n-backend-side_by_side.svg)](https://rubygems.org/gems/i18n-backend-side_by_side)
 
 **Tired of jumping between language files when translating keys? Stop jumping
