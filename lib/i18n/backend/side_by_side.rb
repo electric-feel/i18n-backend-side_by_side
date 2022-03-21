@@ -1,10 +1,8 @@
 require 'i18n'
-require 'i18n/core_ext/hash'
+require 'active_support/core_ext/hash/keys'
 
 module I18n
   module Backend
-    using HashRefinements
-
     class SideBySide < Simple
       VERSION = File.read(File.expand_path('../../../../VERSION', __FILE__))
       LOCALE_PREFIX = '_'
@@ -14,13 +12,13 @@ module I18n
       def load_file(filename)
         type = File.extname(filename).tr('.', '').downcase
         raise UnknownFileType.new(type, filename) unless respond_to?(:"load_#{type}", true)
-        data = send(:"load_#{type}", filename)
+        data = send(:"load_#{type}", filename).first
         unless data.is_a?(Hash)
           raise InvalidLocaleData.new(filename, 'expects it to return a hash, but does not')
         end
 
-        if data.first.first == LOCALE_PREFIX
-          _process([], data[LOCALE_PREFIX].deep_symbolize_keys)
+        if data.first.first.to_s == LOCALE_PREFIX
+          _process([], data.deep_symbolize_keys[LOCALE_PREFIX.to_sym])
         else
           data.each { |locale, d| store_translations(locale, d || {}) }
         end
