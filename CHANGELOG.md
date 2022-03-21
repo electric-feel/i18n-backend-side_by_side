@@ -1,5 +1,7 @@
 # CHANGELOG
 
+## v1.2.0
+
 - Support i18n 1.10.0
 - Drop support for Ruby < 2.7
 
