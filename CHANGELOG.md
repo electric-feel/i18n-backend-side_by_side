@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## v1.3.0
+
+- Add Ruby 3.1 and 3.2 to CI
+- Support translations keys without specified language #8
+
 ## v1.2.0
 
 - Support i18n 1.10.0
