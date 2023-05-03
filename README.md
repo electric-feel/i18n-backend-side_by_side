@@ -47,6 +47,7 @@ _:
       _en: Welcome
       _es: Bienvenido
       _de: Willkommen
+    common_message: This string is available for all languages
     inbox:
       _en:
         zero: You have no messages
