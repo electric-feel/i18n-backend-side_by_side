@@ -1,0 +1,7 @@
+en:
+  book:
+    title: Title
+    sales:
+      one: one
+      zero: none
+      other: many

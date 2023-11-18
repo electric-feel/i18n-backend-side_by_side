@@ -1,0 +1,5 @@
+en:
+  user:
+    name: Name
+    birthdate: Birthdate
+    address: Address
